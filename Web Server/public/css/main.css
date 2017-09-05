@@ -1,3 +1,9 @@
 body {
     font-family: Alef;
+    color: white;
+}
+
+.intro{
+    background: url("/img/BGImg.jpg") no-repeat center;
+    background-size: cover;
 }

@@ -4,14 +4,14 @@
     <div class="row">
         <h3>Cycles</h3>
 
-        <input type="number" class="col-md-8" placeholder="הכנס מספר פעמים " ng-model="cycleNumOfTimes">
+        <input type="number" class="col-md-8 form-control-plaintext" placeholder="הכנס מספר פעמים " ng-model="cycleNumOfTimes">
         <button ng-click="runCycles()" class="btn btn-cyan">הפעל</button>
     </div>
 
     <div class="row">
 
         <h3>הפעלת נורות</h3>
-        
+
         <button class="btn btn-cyan" ng-repeat="light in lights track by $index" ng-click="toggleLight($index)">
             <span ng-if="light">הפעל</span>
             <span ng-if="!light">כבה</span>
