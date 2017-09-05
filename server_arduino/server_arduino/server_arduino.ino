@@ -2,7 +2,7 @@
 IRsend irsend;
 
 const int NUM_OF_LEDS = 9;
-long resaults[NUM_OF_LEDS] = {0xFF30CF, 0xFF18E7, 0xFF7A85, 0xFF10EF, 0xFF38C7, 0xFF5AA5, 0xFF42BD, 0xFF4AB5, 0xFF52AD};
+long results[NUM_OF_LEDS] = {0xFF30CF, 0xFF18E7, 0xFF7A85, 0xFF10EF, 0xFF38C7, 0xFF5AA5, 0xFF42BD, 0xFF4AB5, 0xFF52AD};
 char serialRead;
 
 void setup()
@@ -12,8 +12,10 @@ void setup()
 
 void loop() 
 {
+  if (Serial.available()) {
     serialRead = Serial.read();
-    Serial.println(serialRead);
-    int index = (int)serialRead;
-    irsend.sendSony(resaults[index], 24);
+    int index = (int)serialRead - '0';
+    irsend.sendSony(results[index], 24);
+    delay(100);
+  }
 }
