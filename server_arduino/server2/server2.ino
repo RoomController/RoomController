@@ -40,7 +40,7 @@ int getNumFromText(String text) {
 void printText(String text) {
   irsend.sendSony(0xFF01FF, 24);
   delay(200);
-  for (int i = 0; i < text.length(); i++) {
+  for (int i = 1; i < text.length() && i < 32; i++) {
     irsend.sendSony(text[i], 8);
     delay(200);
   }
@@ -66,11 +66,12 @@ void loop()
     } else {
       if(command.equals("off") || command == "o" || command == "O") {
           irsend.sendSony(0xFF906F, 24);
+      } else if (command[0] == "t") {
+        printText(command);
       } else {
-        command = "Command not found";
+        printText("tCommand not found");
       }
     }
-    printText(command);
     delay(100);
   }
 }
