@@ -1,9 +1,31 @@
 body {
-    font-family: Alef;
     color: white;
 }
 
 .intro{
     background: url("/img/BGImg.jpg") no-repeat center;
     background-size: cover;
+}
+    
+.navbar {
+    background-color: transparent;
+}
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+}
+
+.card {
+    margin: 1%;
+    color: black;
+}
+
+.cardImg{
+    background-color: darkgray;
 }

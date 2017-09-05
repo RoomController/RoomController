@@ -1,27 +1,25 @@
 <div style="text-align: center; margin: 0 auto;">
-    <h1 style="text-align: center;">לוח בקרה בסיסי</h1>
-
     <div class="row">
-        <h3>Cycles</h3>
+        <h3>Cycling</h3>
 
-        <input type="number" class="col-md-8 form-control-plaintext" placeholder="הכנס מספר פעמים " ng-model="cycleNumOfTimes">
-        <button ng-click="runCycles()" class="btn btn-cyan">הפעל</button>
+        <input type="number" class="col-md-8 form-control-plaintext" placeholder="Enter amount of cycles" ng-model="cycleNumOfTimes">
+        <button ng-click="runCycles()" class="btn btn-outline-secondary">Start Cycling</button>
     </div>
 
     <div class="row">
 
-        <h3>הפעלת נורות</h3>
+        <h3>Turn on</h3>
 
-        <button class="btn btn-cyan" ng-repeat="light in lights track by $index" ng-click="toggleLight($index)">
-            <span ng-if="light">הפעל</span>
-            <span ng-if="!light">כבה</span>
+        <button class="btn btn-outline-secondary" ng-repeat="light in lights track by $index" ng-click="toggleLight($index)">
+            <span ng-if="light">On</span>
+            <span ng-if="!light">Off</span>
         </button>
 
     </div>
 
     <div class="row">
 
-        <button class="btn btn-red btn-lg" ng-click="shutdownAll()">כבה הכל</button>
+        <button class="btn btn-red btn-lg" ng-click="shutdownAll()">Turn off the leds</button>
     </div>
 
 </div>
