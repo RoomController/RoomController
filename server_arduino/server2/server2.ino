@@ -37,6 +37,17 @@ int getNumFromText(String text) {
   return num;
 }
 
+void printText(String text) {
+  irsend.sendSony(0xFF01FF, 24);
+  delay(200);
+  for (int i = 0; i < text.length(); i++) {
+    irsend.sendSony(text[i], 8);
+    delay(200);
+  }
+  irsend.sendSony(0xFF01FF, 24);
+  delay(200);
+}
+
 void setup()
 {
  Serial.begin(9600);
@@ -56,9 +67,10 @@ void loop()
       if(command.equals("off") || command == "o" || command == "O") {
           irsend.sendSony(0xFF906F, 24);
       } else {
-          
+        command = "Command not found";
       }
     }
+    printText(command);
     delay(100);
   }
 }
