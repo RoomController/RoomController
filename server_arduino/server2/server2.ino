@@ -7,10 +7,10 @@ long numbers[NUM_OF_NUMS] = {0xFF30CF, 0xFF18E7, 0xFF7A85, 0xFF10EF, 0xFF38C7, 0
 String getSerialRead()
 {
     String text = "";
-    int serialRead = Serial.read();
-    while (serialRead != -1) {
-      text += (char)serialRead;
-      serialRead = Serial.read();
+    //int serialRead = ;
+    while (Serial.available()) {
+      text += (char)Serial.read();
+      //serialRead = Serial.read();
     }
     return text;
 }
@@ -48,12 +48,13 @@ void setup()
 
 void loop() 
 {
+  
   if (Serial.available()) {
     String command = getSerialRead();
     Serial.println(command);
     if (isNumeric(command)) {
       int index = getNumFromText(command);
-      if (index < NUM_OF_NUMS) {
+      if (index < NUM_OF_NUMS && index >= 0) {
         irsend.sendSony(numbers[index], 24);
       }
     } else {
