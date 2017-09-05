@@ -33,8 +33,8 @@ int getNumFromText(String text) {
   int num = 0;
   char dig = text[i];
   while (dig != '\0') {
-    num += (int)text[i] - '0';
     num *= 10;
+    num += (int)text[i] - '0';
     i++;
     dig = text[i];
   }
