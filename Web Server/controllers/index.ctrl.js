@@ -1,3 +1,8 @@
-module.exports.main = function (res, req) {
-  res.json("Test");
+'use strict';
+
+var SerialPort = require('serialport');
+
+
+module.exports.main = function (req, res, next) {
+    res.sendFile('./public')
 };
