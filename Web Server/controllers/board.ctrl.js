@@ -36,6 +36,19 @@ module.exports.cycle = function (req, res) {
     }
 };
 
+module.exports.displayMsg = function (req, res) {
+
+    var msg = req.body.msg;
+    var msgSplited = msg.match(/.{1,32}/g)
+    for (let msgA in msgSplited) {
+        setTimeout(function () {
+            port.write(msgSplited[msgA], 'ASCII');
+        }, 10000);
+    }
+
+
+};
+
 function toggleLED(ledId) {
     port.write(ledId.toString(), 'ASCII');
     setTimeout(function () {
