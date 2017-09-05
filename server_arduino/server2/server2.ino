@@ -2,6 +2,7 @@
 IRsend irsend;
 
 const int NUM_OF_NUMS = 9;
+const char START_OF_TEXT_PRINT = '-';
 long numbers[NUM_OF_NUMS] = {0xFF30CF, 0xFF18E7, 0xFF7A85, 0xFF10EF, 0xFF38C7, 0xFF5AA5, 0xFF42BD, 0xFF4AB5, 0xFF52AD};
 
 String getSerialRead()
@@ -38,6 +39,8 @@ int getNumFromText(String text) {
 }
 
 void printText(String text) {
+  Serial.print("printing: ");
+  Serial.println(text);
   irsend.sendSony(0xFF01FF, 24);
   delay(200);
   for (int i = 1; i < text.length() && i < 32; i++) {
@@ -66,10 +69,12 @@ void loop()
     } else {
       if(command.equals("off") || command == "o" || command == "O") {
           irsend.sendSony(0xFF906F, 24);
-      } else if (command[0] == "t") {
+      } else if (command[0] == START_OF_TEXT_PRINT) {
         printText(command);
       } else {
-        printText("tCommand not found");
+        String txt = (String)START_OF_TEXT_PRINT;
+        txt += "Command not found";
+        printText(txt);
       }
     }
     delay(100);
