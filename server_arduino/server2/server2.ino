@@ -59,10 +59,10 @@ void loop()
       long value;
       if(command == "off") {
           value = 0xFF906F;
+          irsend.sendSony(value, 24);
       } else {
-          value = 0xFFFFF1;
+          
       }
-      irsend.sendSony(value, 24);
     }
     delay(100);
   }
