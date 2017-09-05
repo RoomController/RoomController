@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" ng-app="roomControl">
 <head>
     <meta charset="UTF-8">
 
@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
     <link rel="stylesheet" href="/css/lib/mdb.css">
     <link rel="stylesheet" href="/css/lib/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="/css/lib/Alef.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+
+    <title>Room Control </title>
+</head>
+<body>
 
     <!-- java script -->
     <script src="/js/lib/angular.min.js"></script>
@@ -16,14 +23,19 @@
     <script src="/js/lib/bootstrap.min.js"></script>
     <script src="/js/lib/mdb.min.js"></script>
 
-    <title>Room Control </title>
-</head>
-<body>
-    <h1>Test Server</h1>
+
+    <section class="view intro hm-black-strong">
+        <div class="full-bg-img flex-center">
+            <div class="container">
+                <div ng-view></div>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- App Files -->
     <script src="/js/app.js"></script>
-
-
+    <script src="js/controllers/index.ctrl.js"></script>
 </body>
 </html>

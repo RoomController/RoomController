@@ -29,6 +29,9 @@ module.exports.cycle = function (req, res) {
     }
 
     if (i == req.params.amount) {
+
+        // Shut down all leds
+        port.write("o", 'ASCII');
         res.send("Success");
     }
 };
@@ -38,4 +41,10 @@ function toggleLED(ledId) {
     setTimeout(function () {
         port.write(ledId.toString(), 'ASCII');
     }, 1000);
-}
+    port.flush();
+};
+
+module.exports.shutdown = function (req, res) {
+    port.write("o", 'ASCII');
+    res.send("Shutdown all")
+};
