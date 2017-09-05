@@ -50,6 +50,7 @@ void loop()
 {
   if (Serial.available()) {
     String command = getSerialRead();
+    Serial.println(command);
     if (isNumeric(command)) {
       int index = getNumFromText(command);
       if (index < NUM_OF_NUMS) {
