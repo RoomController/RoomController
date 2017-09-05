@@ -57,7 +57,7 @@ void loop()
       }
     } else {
       long value;
-      if(command == "off") {
+      if(command.equals("off")) {
           value = 0xFF906F;
           irsend.sendSony(value, 24);
       } else {
