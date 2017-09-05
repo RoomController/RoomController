@@ -6,12 +6,8 @@ long numbers[NUM_OF_NUMS] = {0xFF30CF, 0xFF18E7, 0xFF7A85, 0xFF10EF, 0xFF38C7, 0
 
 String getSerialRead()
 {
-    String text = "";
-    //int serialRead = ;
-    while (Serial.available()) {
-      text += (char)Serial.read();
-      //serialRead = Serial.read();
-    }
+    Serial.setTimeout(100);
+    String text = Serial.readString();
     return text;
 }
 
@@ -51,17 +47,14 @@ void loop()
   
   if (Serial.available()) {
     String command = getSerialRead();
-    Serial.println(command);
     if (isNumeric(command)) {
       int index = getNumFromText(command);
       if (index < NUM_OF_NUMS && index >= 0) {
         irsend.sendSony(numbers[index], 24);
       }
     } else {
-      long value;
-      if(command.equals("off")) {
-          value = 0xFF906F;
-          irsend.sendSony(value, 24);
+      if(command.equals("off") || command == "o" || command == "O") {
+          irsend.sendSony(0xFF906F, 24);
       } else {
           
       }

@@ -1,2 +1,2 @@
 # RoomController
-NodeJs server that can interface with atTiny
+NodeJs server that can interface with Arduino
